@@ -1,0 +1,125 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+
+const services = [
+  {
+    title: "Corporate & Commercial Advisory",
+    desc: "Pendampingan untuk pendirian usaha, struktur bisnis, kontrak komersial, dan kepatuhan perusahaan.",
+    suitableFor: ["Startup & Pendiri", "Perusahaan Berkembang", "Investor"],
+    icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
+  },
+  {
+    title: "Contract Drafting & Review",
+    desc: "Penyusunan dan peninjauan perjanjian agar risiko, kewajiban, dan hak para pihak tersusun jelas.",
+    suitableFor: ["Mitra Bisnis", "Vendor & Supplier", "Freelancer Profesional"],
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+  },
+  {
+    title: "Dispute Resolution",
+    desc: "Strategi penyelesaian sengketa melalui negosiasi, mediasi, arbitrase, maupun litigasi.",
+    suitableFor: ["Sengketa Pemegang Saham", "Sengketa Komersial", "Konflik Keperdataan"],
+    icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"
+  },
+  {
+    title: "Employment & Industrial Relations",
+    desc: "Konsultasi hubungan kerja, peraturan perusahaan, kontrak kerja, dan perselisihan ketenagakerjaan.",
+    suitableFor: ["HR Department", "Serikat Pekerja", "Eksekutif"],
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"
+  },
+  {
+    title: "Intellectual Property Protection",
+    desc: "Perlindungan merek, hak cipta, lisensi, dan aset kreatif atau teknologi.",
+    suitableFor: ["Kreator & Inovator", "Perusahaan Teknologi", "Brand Owner"],
+    icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    title: "Family & Estate Matters",
+    desc: "Pendampingan untuk urusan keluarga, waris, perjanjian, dan penyelesaian konflik pribadi.",
+    suitableFor: ["Perencanaan Waris", "Perjanjian Pranikah", "Hukum Keluarga"],
+    icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+  },
+  {
+    title: "Regulatory Compliance",
+    desc: "Review kepatuhan terhadap regulasi dan risiko operasional bisnis.",
+    suitableFor: ["Perusahaan Multinasional", "Lembaga Keuangan", "Industri Khusus"],
+    icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+  },
+  {
+    title: "Real Estate & Property",
+    desc: "Pendampingan transaksi properti, sewa, jual beli, dan review dokumen pertanahan.",
+    suitableFor: ["Pengembang Properti", "Investor Real Estate", "Penyewa Komersial"],
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+  },
+  {
+    title: "Legal Risk Assessment",
+    desc: "Analisis risiko hukum untuk keputusan bisnis, transaksi, kerja sama, atau ekspansi.",
+    suitableFor: ["Merger & Akuisisi", "Ekspansi Bisnis", "Joint Venture"],
+    icon: "M10 21h7a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v11m0 5l4.879-4.879m0 0a3 3 0 104.243-4.242 3 3 0 00-4.243 4.242z"
+  }
+];
+---
+
+<BaseLayout title="Layanan Hukum — Solstice Law">
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Page Hero -->
+    <section class="relative pt-36 pb-24 flex items-center justify-center bg-brand-dark overflow-hidden">
+      <!-- Abstract shapes / background -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-darker via-brand-dark to-[#4A443F]"></div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-4">
+          Practice <span class="italic font-light text-brand-primary">Areas</span>
+        </h1>
+        <div class="flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-beige">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-white">Practice Areas</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Grid -->
+    <section class="py-24 bg-brand-beige">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {services.map(service => (
+            <div class="group bg-white shadow-md hover:shadow-xl hover:-translate-y-2 transition-all duration-300 p-10 flex flex-col h-full border-t-4 border-transparent hover:border-brand-primary">
+              <div class="w-14 h-14 bg-brand-beige/50 rounded-full flex items-center justify-center mb-6 group-hover:bg-brand-primary/10 transition-colors">
+                <svg class="w-7 h-7 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={service.icon}></path>
+                </svg>
+              </div>
+              <h2 class="text-2xl font-serif font-bold text-brand-dark mb-4 group-hover:text-brand-primary transition-colors">{service.title}</h2>
+              <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-grow">{service.desc}</p>
+              
+              <div class="mb-8">
+                <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-3">Cocok untuk:</p>
+                <ul class="space-y-2">
+                  {service.suitableFor.map(item => (
+                    <li class="flex items-center gap-2 text-sm text-slate-700">
+                      <svg class="w-4 h-4 text-brand-primary flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <a href="/contact" class="inline-flex items-center gap-2 text-brand-primary font-bold text-sm tracking-wider uppercase hover:text-brand-dark transition-colors group/link mt-auto pt-6 border-t border-brand-beige/50">
+                Konsultasi
+                <span class="transform group-hover/link:translate-x-1 transition-transform">&rarr;</span>
+              </a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

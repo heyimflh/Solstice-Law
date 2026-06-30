@@ -1,0 +1,281 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+---
+
+<BaseLayout title="Solstice Law — Strategic Legal Counsel">
+  <Header />
+
+  <main>
+    <!-- 1. Hero Section -->
+    <section class="relative h-screen min-h-[700px] flex items-center">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="/images/hero.png" alt="Solstice Law Hero" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+      </div>
+
+      <div class="max-w-[1400px] mx-auto px-6 w-full relative z-10 grid grid-cols-1 md:grid-cols-12 gap-8 mt-16">
+        <div class="md:col-span-8 lg:col-span-7">
+          <h1 class="text-6xl md:text-7xl lg:text-[5.5rem] font-serif font-bold text-white leading-[1.1] mb-8">
+            Kejelasan Hukum.<br />Lindungi <span class="italic font-light text-brand-beige">Masa Depan.</span>
+          </h1>
+          <Button href="/contact" variant="white" class="!text-brand-primary !px-10 !py-4">Contact Us</Button>
+        </div>
+        <div class="md:col-span-4 lg:col-span-5 flex items-end justify-end pb-8">
+          <div class="border-l border-white/30 pl-6 max-w-xs text-white">
+            <p class="text-sm leading-relaxed">
+              Firma hukum modern yang menghadirkan ketenangan, kejelasan, dan strategi pada setiap keputusan hukum penting Anda dan keluarga.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. About Section -->
+    <section class="py-24 bg-white relative">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="space-y-8">
+            <div class="flex items-center gap-4">
+              <div class="w-2 h-2 bg-brand-primary"></div>
+              <span class="text-xs uppercase tracking-widest font-bold text-slate-800">About the Firm</span>
+            </div>
+            
+            <h2 class="text-5xl md:text-6xl font-serif text-brand-dark leading-tight">
+              Kejelasan di Setiap, <br/><span class="italic font-light text-brand-primary">Keputusan</span>
+            </h2>
+            
+            <p class="text-[15px] leading-relaxed text-slate-600 max-w-md">
+              Solstice Law berdiri dari keyakinan bahwa persoalan hukum tidak seharusnya membuat klien kehilangan arah. Kami hadir untuk membantu individu, bisnis, dan organisasi memahami risiko, melihat pilihan yang tersedia, dan mengambil keputusan dengan dasar hukum yang kuat.
+            </p>
+            
+            <p class="text-[15px] leading-relaxed text-slate-600 max-w-md">
+              Kami memadukan ketelitian analitis dengan pemahaman komersial yang dalam untuk memastikan Anda selalu berada pada posisi yang lebih aman.
+            </p>
+            
+            <div class="flex items-center gap-8 pt-4">
+              <img src="/images/logo-only.png" alt="Solstice Law Icon" class="h-24 w-auto object-contain" />
+              <Button href="/firm" variant="primary">Book a Call Today</Button>
+            </div>
+          </div>
+
+          <div class="relative">
+            <!-- Image shadow/border effect similar to reference -->
+            <div class="bg-brand-beige/20 absolute -inset-4 transform translate-x-4 translate-y-4"></div>
+            <img src="/images/tingey-injury-law-firm-justice-statue.webp" alt="Justice Statue" class="relative z-10 w-full h-[600px] object-cover" />
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Practice Areas -->
+    <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
+      <!-- Decor lines -->
+      <div class="absolute top-0 left-0 w-full h-px bg-white/10"></div>
+      
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+          <div>
+            <div class="flex items-center gap-4 mb-4">
+              <div class="w-2 h-2 bg-brand-primary"></div>
+              <span class="text-xs uppercase tracking-widest font-bold text-brand-beige">Practice Areas</span>
+            </div>
+            <h2 class="text-4xl md:text-5xl font-serif text-white">Practice Areas</h2>
+            <p class="text-brand-light/70 mt-4 max-w-lg text-sm leading-relaxed">
+              Kami menyediakan pendampingan strategis dan analitis yang disesuaikan dengan setiap langkah bisnis dan kehidupan pribadi Anda.
+            </p>
+          </div>
+          <Button href="/services" variant="white" class="!bg-white !text-brand-dark whitespace-nowrap">View Practice Areas</Button>
+        </div>
+
+        <!-- Carousel/Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {[
+            { title: 'Corporate & Commercial', desc: 'Pendampingan struktur bisnis dan kontrak komersial perusahaan.', img: '/images/practice_area.png' },
+            { title: 'Dispute Resolution', desc: 'Strategi penyelesaian sengketa melalui negosiasi maupun litigasi.', img: '/images/dispute_resolution.png' },
+            { title: 'Family & Estate', desc: 'Pendampingan urusan waris, perjanjian, dan resolusi keluarga.', img: '/images/family_estate.png' },
+          ].map(area => (
+            <div class="bg-white group cursor-pointer">
+              <div class="h-48 overflow-hidden">
+                <img src={area.img} alt={area.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              </div>
+              <div class="p-8">
+                <h3 class="text-xl font-serif text-brand-primary mb-3">{area.title}</h3>
+                <p class="text-sm text-slate-600 leading-relaxed mb-6">{area.desc}</p>
+                <div class="text-brand-primary flex gap-2">
+                  <div class="w-2 h-2 rounded-full bg-brand-primary/30"></div>
+                  <div class="w-2 h-2 rounded-full bg-brand-primary"></div>
+                  <div class="w-2 h-2 rounded-full bg-brand-primary/30"></div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. The Attorney -->
+    <section class="py-24 bg-white">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          
+          <div class="relative order-2 lg:order-1">
+            <div class="bg-brand-beige/20 absolute -inset-4 transform -translate-x-4 translate-y-4"></div>
+            <img src="/images/attourney.jpeg" alt="Our Legal Team" class="relative z-10 w-full h-[600px] object-cover" />
+          </div>
+
+          <div class="space-y-8 order-1 lg:order-2 lg:pl-12">
+            <div class="flex items-center gap-4">
+              <div class="w-2 h-2 bg-brand-primary"></div>
+              <span class="text-xs uppercase tracking-widest font-bold text-slate-800">Our Attorneys</span>
+            </div>
+            
+            <h2 class="text-5xl font-serif text-brand-dark leading-tight">
+              Committed to <br/>Your <span class="italic font-light text-brand-primary">Success.</span>
+            </h2>
+            
+            <p class="text-[15px] leading-relaxed text-slate-600 max-w-md">
+              Tim pengacara kami memiliki rekam jejak panjang dalam menangani transaksi komersial kompleks dan berbagai sengketa hukum. Kami berfokus pada penyelesaian yang strategis, efisien, dan berorientasi penuh pada keamanan serta keberhasilan klien.
+            </p>
+            
+            <div class="pt-4">
+              <Button href="/team" variant="primary">Book a Call Today</Button>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Testimonial Box (Overlapping) -->
+    <section class="relative bg-brand-light py-20 overflow-hidden">
+      <div class="max-w-[1200px] mx-auto px-6 relative z-10">
+        <div class="bg-brand-beige p-12 md:p-16 max-w-xl shadow-lg relative transform lg:translate-x-32">
+          <svg class="absolute top-8 left-8 w-12 h-12 text-brand-primary/20" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z"/></svg>
+          <p class="relative z-10 text-brand-dark font-serif text-xl italic leading-relaxed">
+            "Kami benar-benar berterima kasih atas bantuan Solstice Law. Strategi yang mereka susun sangat sistematis, membuat kami merasa aman melangkah ke masa depan."
+          </p>
+          <p class="mt-8 text-sm font-bold tracking-widest uppercase text-brand-primary">— S. Wijaya</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Latest News -->
+    <section class="py-24 bg-brand-beige">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+          
+          <div class="relative">
+            <img src="/images/hero_family.png" alt="Happy family" class="w-full h-[500px] object-cover rounded-sm shadow-md" />
+          </div>
+
+          <div>
+            <div class="flex items-center justify-between mb-12">
+              <div>
+                <div class="flex items-center gap-4 mb-4">
+                  <div class="w-2 h-2 bg-brand-primary"></div>
+                  <span class="text-xs uppercase tracking-widest font-bold text-slate-800">Insights & Guidance</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark">Latest News</h2>
+              </div>
+              <Button href="#" variant="primary" class="hidden md:flex !px-6 !py-2.5">View All</Button>
+            </div>
+
+            <!-- Article List -->
+            <div class="space-y-8">
+              {[
+                { cat: 'ESTATE PLANNING', title: 'Avoid These Common & Expensive Mistakes: How To Leave A Lasting Legacy', img: '/images/indoor_family.png' },
+                { cat: 'ESTATE PLANNING', title: 'Yours, Mine & Ours: Estate Planning For Modern Florida Families', img: '/images/news_family.png' }
+              ].map(post => (
+                <a href="#" class="flex gap-6 group">
+                  <img src={post.img} alt={post.title} class="w-32 h-32 object-cover flex-shrink-0 border border-black/5" />
+                  <div class="flex flex-col justify-center">
+                    <span class="text-[10px] uppercase font-bold tracking-widest text-brand-primary mb-2">{post.cat}</span>
+                    <h3 class="text-lg font-serif text-brand-dark group-hover:text-brand-primary transition-colors leading-snug mb-2">{post.title}</h3>
+                    <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                      You love your children and want to ensure that they are always taken care of...
+                    </p>
+                  </div>
+                </a>
+              ))}
+            </div>
+            
+            <Button href="#" variant="primary" class="md:hidden mt-10 w-full">View All</Button>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Secure Your Future Today (Form) -->
+    <section class="relative py-24 pb-48">
+      <div class="absolute inset-0 z-0">
+        <img src="/images/hero_family.png" alt="Beach family" class="w-full h-full object-cover" />
+        <div class="absolute inset-0 bg-brand-darker/80"></div>
+      </div>
+
+      <div class="relative z-10 max-w-[800px] mx-auto px-6">
+        <div class="text-center mb-12">
+          <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="w-2 h-2 bg-brand-primary"></div>
+            <span class="text-xs uppercase tracking-widest font-bold text-brand-beige">Schedule Your Consultation</span>
+          </div>
+          <h2 class="text-4xl md:text-5xl font-serif text-white mb-4">Secure Your Future Today</h2>
+          <p class="text-brand-light/80 text-sm">Let's build a plan that protects what matters most.</p>
+        </div>
+
+        <form class="space-y-6" onsubmit="event.preventDefault();">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">First Name</label>
+              <input type="text" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Last Name</label>
+              <input type="text" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+            </div>
+          </div>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Phone Number</label>
+              <input type="tel" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Email Address</label>
+              <input type="email" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+            </div>
+          </div>
+          
+          <div>
+            <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">How did you hear about us?</label>
+            <select class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm appearance-none">
+              <option>How did you hear about us?</option>
+              <option>Google Search</option>
+              <option>Referral</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Message</label>
+            <textarea rows="4" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm"></textarea>
+          </div>
+
+          <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
+            <label class="flex items-center gap-2 cursor-pointer text-white">
+              <input type="checkbox" class="w-4 h-4 text-brand-primary rounded-sm border-white/20" required />
+              <span class="text-[11px] font-light">I consent to the <a href="#" class="underline">privacy policy</a></span>
+            </label>
+            <Button type="submit" variant="primary" class="!px-10 !py-3">Submit</Button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

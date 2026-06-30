@@ -1,0 +1,33 @@
+---
+// Button.astro
+interface Props {
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline' | 'white';
+  class?: string;
+  type?: 'button' | 'submit';
+}
+
+const { href, variant = 'primary', class: className = '', type = 'button' } = Astro.props;
+
+// Pill-shaped rounded buttons
+const baseStyles = "inline-flex items-center justify-center px-8 py-3.5 font-sans font-medium text-[14px] uppercase tracking-wider rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm hover:shadow-md";
+
+const variants = {
+  primary: "bg-brand-primary text-white hover:bg-brand-primary-hover focus:ring-brand-primary",
+  secondary: "bg-brand-dark text-white hover:bg-brand-darker focus:ring-brand-dark",
+  outline: "border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white focus:ring-brand-primary",
+  white: "bg-white text-brand-primary hover:bg-brand-beige focus:ring-white"
+};
+
+const combinedClasses = `${baseStyles} ${variants[variant]} ${className}`;
+---
+
+{href ? (
+  <a href={href} class={combinedClasses}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={combinedClasses}>
+    <slot />
+  </button>
+)}

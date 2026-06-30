@@ -1,0 +1,185 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Button from '../components/ui/Button.astro';
+
+const categories = ["All Insights", "Corporate Law", "Estate Planning", "Dispute Resolution", "Regulatory"];
+
+const featuredPost = {
+  cat: 'ESTATE PLANNING',
+  title: 'Avoid These Common & Expensive Mistakes: How To Leave A Lasting Legacy',
+  desc: 'Pentingnya merencanakan warisan tidak hanya tentang aset, tapi juga kedamaian keluarga. Pelajari kesalahan umum yang sering terjadi dalam pembagian aset dan bagaimana Anda bisa menghindarinya sejak dini.',
+  img: '/images/hero_family.png',
+  author: 'Solstice Law',
+  date: '28 Jun 2026'
+};
+
+const blogPosts = [
+  {
+    cat: 'ESTATE PLANNING',
+    title: 'Yours, Mine & Ours: Estate Planning For Modern Florida Families',
+    desc: 'Memahami kompleksitas hukum keluarga modern dan strategi perencanaan kekayaan untuk generasi penerus.',
+    img: '/images/news_family.png',
+    date: '24 Jun 2026'
+  },
+  {
+    cat: 'CORPORATE LAW',
+    title: 'The Ultimate Guide to Commercial Contract Structuring in 2026',
+    desc: 'Panduan lengkap merancang kontrak bisnis yang aman, anti-celah, dan melindungi aset perusahaan Anda secara menyeluruh.',
+    img: '/images/practice_area.png',
+    date: '18 Jun 2026'
+  },
+  {
+    cat: 'DISPUTE RESOLUTION',
+    title: 'Arbitration vs Litigation: Which Path is Best for Your Business Dispute?',
+    desc: 'Menganalisis perbedaan krusial antara arbitrase dan litigasi, serta strategi mana yang paling efektif untuk sengketa B2B.',
+    img: '/images/dispute_resolution.png',
+    date: '12 Jun 2026'
+  },
+  {
+    cat: 'FAMILY & ESTATE',
+    title: 'Protecting Your Assets During a High-Net-Worth Divorce',
+    desc: 'Langkah-langkah legal krusial untuk mengamankan kekayaan dan bisnis keluarga di tengah proses perceraian yang rumit.',
+    img: '/images/indoor_family.png',
+    date: '05 Jun 2026'
+  },
+  {
+    cat: 'REGULATORY',
+    title: 'Navigating New Data Privacy Laws: Is Your Company Compliant?',
+    desc: 'Tinjauan hukum terhadap regulasi privasi data terbaru dan langkah konkret agar perusahaan Anda terhindar dari sanksi administratif.',
+    img: '/images/family_estate.png',
+    date: '28 May 2026'
+  },
+  {
+    cat: 'CORPORATE LAW',
+    title: 'Mergers & Acquisitions: A Due Diligence Checklist for Success',
+    desc: 'Daftar periksa komprehensif bagi para eksekutif sebelum melakukan merger atau akuisisi untuk meminimalisir risiko finansial.',
+    img: '/images/hero.png',
+    date: '20 May 2026'
+  }
+];
+---
+
+<BaseLayout title="Insights & News — Solstice Law">
+  <Header />
+
+  <main class="flex-grow bg-[#FDFBF9]">
+    <!-- Hero Section -->
+    <section class="relative pt-36 pb-32 flex items-center justify-center bg-brand-dark overflow-hidden">
+      <!-- Background elements -->
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-darker via-brand-dark to-[#4A443F]"></div>
+        <div class="absolute top-0 right-0 w-[600px] h-[600px] bg-white/[0.02] transform rotate-12 translate-x-1/4 -translate-y-1/4"></div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-6">
+          Insights <span class="italic font-light text-brand-primary">&</span> News
+        </h1>
+        <p class="text-brand-light/70 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8">
+          Perspektif strategis, pembaruan hukum, dan panduan komprehensif dari tim pengacara kami untuk membantu navigasi bisnis dan urusan personal Anda.
+        </p>
+        <div class="flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-beige">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-white">Blog</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Article -->
+    <section class="relative -mt-16 z-20 px-6 max-w-[1200px] mx-auto">
+      <a href="#" class="block group">
+        <div class="bg-white p-4 md:p-6 shadow-2xl rounded-sm flex flex-col lg:flex-row gap-8 lg:gap-12 items-center transition-transform duration-500 hover:-translate-y-2">
+          
+          <div class="w-full lg:w-3/5 overflow-hidden rounded-sm relative">
+            <img src={featuredPost.img} alt={featuredPost.title} class="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500"></div>
+          </div>
+          
+          <div class="w-full lg:w-2/5 p-4 lg:p-0 lg:pr-8 space-y-6">
+            <div class="flex flex-wrap items-center gap-4">
+              <span class="text-[10px] bg-brand-primary/10 text-brand-primary px-3 py-1.5 uppercase font-bold tracking-widest rounded-full">
+                Featured
+              </span>
+              <span class="text-[10px] text-brand-dark uppercase font-bold tracking-widest">{featuredPost.cat}</span>
+            </div>
+            
+            <h2 class="text-3xl md:text-4xl font-serif text-brand-dark leading-tight group-hover:text-brand-primary transition-colors duration-300">
+              {featuredPost.title}
+            </h2>
+            
+            <p class="text-slate-600 text-[15px] leading-relaxed">
+              {featuredPost.desc}
+            </p>
+            
+            <div class="flex items-center gap-4 pt-4 border-t border-slate-100">
+              <div class="w-10 h-10 rounded-full bg-brand-beige flex items-center justify-center text-brand-dark">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path></svg>
+              </div>
+              <div class="flex flex-col">
+                <span class="text-xs font-bold text-brand-dark">{featuredPost.author}</span>
+                <span class="text-xs text-slate-500">{featuredPost.date}</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </a>
+    </section>
+
+    <!-- Filter Categories -->
+    <section class="max-w-[1200px] mx-auto px-6 pt-24 pb-12">
+      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+        {categories.map((cat, index) => (
+          <button class={`px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full border ${index === 0 ? 'bg-brand-dark text-white border-brand-dark shadow-md' : 'bg-transparent text-slate-500 border-slate-300 hover:border-brand-dark hover:text-brand-dark'}`}>
+            {cat}
+          </button>
+        ))}
+      </div>
+    </section>
+
+    <!-- News Grid -->
+    <section class="max-w-[1200px] mx-auto px-6 pb-32">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+        {blogPosts.map(post => (
+          <a href="#" class="group flex flex-col h-full bg-white shadow-sm hover:shadow-xl transition-all duration-500 rounded-sm overflow-hidden border border-slate-100">
+            <div class="relative h-64 overflow-hidden">
+              <img src={post.img} alt={post.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+              <div class="absolute inset-0 bg-brand-darker/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            
+            <div class="p-8 flex flex-col flex-grow">
+              <div class="flex items-center justify-between mb-4">
+                <span class="text-[10px] text-brand-primary uppercase font-bold tracking-widest">{post.cat}</span>
+                <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{post.date}</span>
+              </div>
+              
+              <h3 class="text-xl font-serif text-brand-dark leading-snug mb-4 group-hover:text-brand-primary transition-colors">
+                {post.title}
+              </h3>
+              
+              <p class="text-sm text-slate-600 leading-relaxed mb-6 flex-grow">
+                {post.desc}
+              </p>
+              
+              <div class="mt-auto flex items-center text-xs font-bold text-brand-dark group-hover:text-brand-primary transition-colors uppercase tracking-widest">
+                Read Article 
+                <svg class="w-4 h-4 ml-2 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      
+      <!-- Load More Button -->
+      <div class="mt-20 text-center">
+        <Button href="#" variant="outline" class="!px-10">Load More Articles</Button>
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</BaseLayout>

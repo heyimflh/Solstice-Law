@@ -1,0 +1,140 @@
+---
+import Button from '../ui/Button.astro';
+
+const navLinks = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/firm' },
+  { label: 'Practice Areas', href: '/services' },
+  { label: 'Attorney', href: '/team' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Contact Us', href: '/contact' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header id="main-header" class="fixed top-0 left-0 w-full z-50 bg-white/5 backdrop-blur-2xl backdrop-saturate-200 border-b border-white/10 text-white transition-all duration-500">
+  <div id="header-container" class="max-w-[1400px] mx-auto px-6 h-24 transition-all duration-500 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center group">
+      <img id="header-logo" src="/images/logo-full.png" alt="Solstice Law Logo" class="h-10 md:h-14 w-auto object-contain group-hover:scale-105 transition-all duration-500 origin-left brightness-0 invert" />
+    </a>
+
+    <!-- Navigation -->
+    <div class="hidden lg:flex items-center gap-10">
+      <nav class="flex items-center gap-8">
+        {navLinks.map((link) => {
+          const isActive = currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href));
+          return (
+            <a 
+              href={link.href} 
+              class={`nav-link font-sans text-[13px] tracking-wider transition-colors hover:text-brand-primary ${isActive ? 'text-brand-primary font-bold' : 'text-white font-medium'}`}
+            >
+              {link.label}
+            </a>
+          )
+        })}
+      </nav>
+      
+      <Button href="tel:+6285602298305" variant="primary" class="!px-6 !py-2.5 !text-xs">
+        +62 856-0229-8305
+      </Button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="lg:hidden text-white hover:text-brand-primary focus:outline-none transition-colors duration-500">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-brand-dark z-40 transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col pt-24 px-8">
+    <button id="mobile-close-btn" class="absolute top-8 right-6 text-white hover:text-brand-primary">
+      <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <nav class="flex flex-col gap-8 text-center">
+      {navLinks.map((link) => (
+        <a href={link.href} class="font-serif text-3xl text-white hover:text-brand-primary">{link.label}</a>
+      ))}
+      <div class="mt-8">
+        <Button href="tel:+6285602298305" variant="primary" class="w-full">Hubungi Kami</Button>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // Mobile Menu Logic
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const mobileCloseBtn = document.getElementById('mobile-close-btn');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (mobileMenuBtn && mobileCloseBtn && mobileMenu) {
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('translate-x-full');
+    });
+
+    mobileCloseBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('translate-x-full');
+    });
+  }
+
+  // Sticky Header Logic
+  const header = document.getElementById('main-header');
+  const headerContainer = document.getElementById('header-container');
+  const headerLogo = document.getElementById('header-logo');
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mobileBtn = document.getElementById('mobile-menu-btn');
+
+  if (header && headerContainer && headerLogo) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.remove('bg-white/5', 'border-white/10', 'text-white');
+        header.classList.add('bg-white/80', 'shadow-sm', 'border-black/5', 'text-brand-darker');
+        
+        headerContainer.classList.remove('h-24');
+        headerContainer.classList.add('h-20');
+
+        headerLogo.classList.remove('md:h-14', 'brightness-0', 'invert');
+        headerLogo.classList.add('md:h-12');
+        
+        if(mobileBtn) {
+          mobileBtn.classList.remove('text-white');
+          mobileBtn.classList.add('text-brand-darker');
+        }
+
+        navLinks.forEach(link => {
+          if (!link.classList.contains('text-brand-primary')) {
+            link.classList.remove('text-white');
+            link.classList.add('text-brand-darker');
+          }
+        });
+      } else {
+        header.classList.add('bg-white/5', 'border-white/10', 'text-white');
+        header.classList.remove('bg-white/80', 'shadow-sm', 'border-black/5', 'text-brand-darker');
+        
+        headerContainer.classList.add('h-24');
+        headerContainer.classList.remove('h-20');
+
+        headerLogo.classList.add('md:h-14', 'brightness-0', 'invert');
+        headerLogo.classList.remove('md:h-12');
+        
+        if(mobileBtn) {
+          mobileBtn.classList.add('text-white');
+          mobileBtn.classList.remove('text-brand-darker');
+        }
+
+        navLinks.forEach(link => {
+          if (!link.classList.contains('text-brand-primary')) {
+            link.classList.add('text-white');
+            link.classList.remove('text-brand-darker');
+          }
+        });
+      }
+    });
+  }
+</script>

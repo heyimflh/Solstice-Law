@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #b47556; /* Bronze/Rust */
+  --color-brand-primary-hover: #9c6042;
+  --color-brand-dark: #3a3431; /* Dark brownish slate */
+  --color-brand-darker: #2f2a27; /* Darker slate for footer/headers */
+  --color-brand-beige: #efe9e1; /* Warm beige */
+  --color-brand-light: #fdfdfd; /* Off white */
+  
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+}
+
+@layer base {
+  body {
+    @apply bg-brand-light text-slate-800 font-sans antialiased;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-brand-dark tracking-tight;
+  }
+}

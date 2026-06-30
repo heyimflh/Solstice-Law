@@ -1,0 +1,91 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<BaseLayout title="Pendekatan Hukum — Solstice Law">
+  <Header />
+
+  <main class="flex-grow">
+    <!-- Page Hero -->
+    <section class="relative pt-36 pb-24 flex items-center justify-center bg-brand-dark overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-darker via-brand-dark to-[#4A443F]"></div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
+        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-4">
+          Pendekatan <span class="italic font-light text-brand-primary">Kami</span>
+        </h1>
+        <div class="flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-beige">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-white">Pendekatan Kami</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Process Steps -->
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="space-y-16 relative">
+          {[
+            { num: "01", title: "Initial Understanding", desc: "Memahami kebutuhan, konteks, dokumen awal, dan tujuan klien." },
+            { num: "02", title: "Legal Mapping", desc: "Mengidentifikasi isu hukum, risiko, peluang, dan opsi penyelesaian." },
+            { num: "03", title: "Strategic Recommendation", desc: "Menyusun rekomendasi langkah yang jelas, realistis, dan dapat dieksekusi." },
+            { num: "04", title: "Execution Support", desc: "Mendampingi proses negosiasi, drafting, review, korespondensi, atau tindakan hukum." },
+            { num: "05", title: "Review & Continuity", desc: "Melakukan evaluasi lanjutan dan memastikan langkah hukum tetap selaras dengan tujuan klien." }
+          ].map((step, index, arr) => (
+            <div class="relative flex gap-8 md:gap-12 group">
+              {index !== arr.length - 1 && (
+                <div class="absolute left-[31px] md:left-[39px] top-20 bottom-[-4rem] w-px bg-brand-primary/20 group-hover:bg-brand-primary transition-colors"></div>
+              )}
+              <div class="flex-shrink-0">
+                <div class="w-16 h-16 md:w-20 md:h-20 bg-brand-beige border border-brand-primary/30 rounded-full flex items-center justify-center font-serif text-2xl font-bold text-brand-primary shadow-sm relative z-10 group-hover:bg-brand-primary group-hover:text-white transition-all duration-300">
+                  {step.num}
+                </div>
+              </div>
+              <div class="pt-3 md:pt-5 pb-8">
+                <h3 class="text-2xl font-serif font-bold text-brand-dark mb-4">{step.title}</h3>
+                <p class="text-slate-600 text-lg leading-relaxed">{step.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Service Principles -->
+    <section class="py-24 bg-brand-beige">
+      <div class="max-w-[1200px] mx-auto px-6">
+        <div class="text-center max-w-2xl mx-auto mb-16">
+          <div class="flex items-center justify-center gap-4 mb-4">
+            <div class="w-2 h-2 bg-brand-primary"></div>
+            <span class="text-xs uppercase tracking-widest font-bold text-slate-800">Commitments</span>
+          </div>
+          <h2 class="text-4xl font-serif text-brand-dark">Standar Pelayanan Kami</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10 max-w-5xl mx-auto">
+          {[
+            "Setiap rekomendasi harus memiliki alasan hukum yang jelas.",
+            "Klien mendapat gambaran risiko sebelum mengambil keputusan.",
+            "Komunikasi dibuat ringkas, sopan, dan mudah dipahami.",
+            "Dokumen dan informasi klien dijaga secara rahasia.",
+            "Solusi harus mempertimbangkan konteks bisnis atau pribadi klien."
+          ].map(item => (
+            <div class="flex items-start gap-4 p-8 bg-white shadow-md">
+              <div class="mt-1 w-6 h-6 rounded-full bg-brand-primary/10 flex items-center justify-center flex-shrink-0">
+                <svg class="w-4 h-4 text-brand-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <p class="text-slate-700 leading-relaxed">{item}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
