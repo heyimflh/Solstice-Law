@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+---
+
+<BaseLayout title="Disclaimer & Privacy Policy — Solstice Law">
+  <Header />
+
+  <main class="flex-grow">
+    <section class="relative pt-36 pb-24 flex items-center justify-center bg-brand-dark overflow-hidden">
+      <div class="absolute inset-0 z-0">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-darker via-brand-dark to-[#4A443F]"></div>
+      </div>
+
+      <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl font-serif text-white leading-tight mb-4">
+          Disclaimer & <span class="italic font-light text-brand-primary">Privacy Policy</span>
+        </h1>
+        <div class="flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-beige">
+          <a href="/" class="hover:text-white transition-colors">Home</a>
+          <span>/</span>
+          <span class="text-white">Legal</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-brand-light">
+      <div class="max-w-4xl mx-auto px-6 bg-white p-8 md:p-16 shadow-sm border border-slate-100">
+        <div class="prose prose-slate max-w-none prose-headings:font-serif prose-headings:text-brand-dark prose-a:text-brand-primary">
+          <h2 class="text-2xl font-bold mb-6">Disclaimer</h2>
+          <p class="mb-6 text-slate-700 leading-relaxed">
+            Informasi yang disediakan di situs web ini (solsticelaw.id) hanya untuk tujuan informasi umum dan tidak dimaksudkan sebagai nasihat hukum formal. Membaca informasi di situs web ini atau menghubungi kami melalui email, formulir kontak, atau cara lain tidak menciptakan hubungan pengacara-klien (attorney-client relationship).
+          </p>
+          <p class="mb-8 text-slate-700 leading-relaxed">
+            Solstice Law tidak bertanggung jawab atas kerugian atau kerusakan yang timbul dari ketergantungan pada informasi yang dimuat di situs web ini. Anda disarankan untuk mencari nasihat profesional secara langsung mengenai masalah spesifik Anda.
+          </p>
+
+          <h2 class="text-2xl font-bold mb-6 pt-8 border-t border-slate-100">Privacy Policy</h2>
+          <p class="mb-6 text-slate-700 leading-relaxed">
+            Privasi Anda penting bagi kami. Kami berkomitmen untuk melindungi informasi pribadi yang Anda berikan saat menggunakan situs web kami.
+          </p>
+          <h3 class="text-lg font-bold mb-4">Pengumpulan Informasi</h3>
+          <p class="mb-6 text-slate-700 leading-relaxed">
+            Kami hanya mengumpulkan informasi yang Anda berikan secara sukarela, seperti nama, alamat email, dan nomor telepon ketika Anda mengisi formulir kontak atau berlangganan newsletter kami.
+          </p>
+          <h3 class="text-lg font-bold mb-4">Penggunaan Informasi</h3>
+          <p class="mb-6 text-slate-700 leading-relaxed">
+            Informasi yang kami kumpulkan digunakan secara eksklusif untuk menanggapi pertanyaan Anda, memberikan layanan hukum jika Anda menjadi klien kami, atau mengirimkan newsletter apabila Anda memilih untuk berlangganan. Kami tidak akan menjual, menyewakan, atau membagikan informasi pribadi Anda kepada pihak ketiga tanpa izin tertulis dari Anda.
+          </p>
+          
+          <h3 class="text-lg font-bold mb-4">Keamanan</h3>
+          <p class="mb-6 text-slate-700 leading-relaxed">
+            Kami mengambil langkah-langkah yang wajar untuk melindungi informasi Anda dari akses yang tidak sah. Meskipun demikian, tidak ada transmisi data melalui internet yang sepenuhnya aman, dan kami tidak dapat menjamin keamanan mutlak informasi yang Anda kirimkan secara online.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

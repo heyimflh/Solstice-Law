@@ -19,7 +19,7 @@ import Button from '../components/ui/Button.astro';
       </div>
 
       <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-4">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-4">
           Tentang <span class="italic font-light text-brand-primary">Firma</span>
         </h1>
         <div class="flex items-center justify-center gap-2 text-xs font-bold tracking-widest uppercase text-brand-beige">
@@ -33,7 +33,7 @@ import Button from '../components/ui/Button.astro';
     <!-- 2. About Section (Re-used from Home) -->
     <section class="py-24 bg-white relative">
       <div class="max-w-[1200px] mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
           
           <div class="space-y-8">
             <div class="flex items-center gap-4">
@@ -41,7 +41,7 @@ import Button from '../components/ui/Button.astro';
               <span class="text-xs uppercase tracking-widest font-bold text-slate-800">About the Firm</span>
             </div>
             
-            <h2 class="text-5xl md:text-6xl font-serif text-brand-dark leading-tight">
+            <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-brand-dark leading-tight">
               Kejelasan di Setiap, <br/><span class="italic font-light text-brand-primary">Keputusan</span>
             </h2>
             
@@ -53,15 +53,15 @@ import Button from '../components/ui/Button.astro';
               Kami memadukan ketelitian analitis dengan pemahaman komersial yang dalam untuk memastikan Anda selalu berada pada posisi yang lebih aman.
             </p>
             
-            <div class="flex items-center gap-8 pt-4">
-              <img src="/images/logo-only.png" alt="Solstice Law Icon" class="h-24 w-auto object-contain" />
+            <div class="flex items-center gap-6 md:gap-8 pt-4">
+              <img src="/images/logo-only.png" alt="Solstice Law Icon" class="h-16 md:h-24 w-auto object-contain" />
               <Button href="/contact" variant="primary">Book a Call Today</Button>
             </div>
           </div>
 
           <div class="relative">
-            <div class="bg-brand-beige/20 absolute -inset-4 transform translate-x-4 translate-y-4"></div>
-            <img src="/images/tingey-injury-law-firm-justice-statue.webp" alt="Justice Statue" class="relative z-10 w-full h-[600px] object-cover" />
+            <div class="bg-brand-beige/20 absolute -inset-2 md:-inset-4 transform translate-x-2 md:translate-x-4 translate-y-2 md:translate-y-4"></div>
+            <img src="/images/tingey-injury-law-firm-justice-statue.webp" alt="Justice Statue" class="relative z-10 w-full h-[350px] sm:h-[450px] lg:h-[600px] object-cover" />
           </div>
           
         </div>
@@ -84,7 +84,7 @@ import Button from '../components/ui/Button.astro';
               <div class="w-2 h-2 bg-brand-primary"></div>
               <span class="text-xs uppercase tracking-widest font-bold text-brand-beige">Solstice Law Advantage</span>
             </div>
-            <h2 class="text-4xl md:text-5xl font-serif text-white leading-tight">
+            <h2 class="text-3xl md:text-5xl font-serif text-white leading-tight">
               Why Choose <br/><span class="italic font-light text-brand-primary">Solstice Law</span>
             </h2>
             <p class="text-[15px] leading-relaxed text-brand-beige/80 max-w-md">
@@ -127,10 +127,10 @@ import Button from '../components/ui/Button.astro';
     <!-- 5. Latest News -->
     <section class="py-24 bg-brand-beige">
       <div class="max-w-[1200px] mx-auto px-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-start">
           
           <div class="relative">
-            <img src="/images/hero_family.png" alt="Happy family" class="w-full h-[500px] object-cover rounded-sm shadow-md" />
+            <img src="/images/hero_family.png" alt="Happy family" class="w-full h-[280px] sm:h-[380px] lg:h-[500px] object-cover rounded-sm shadow-md" />
           </div>
 
           <div>
@@ -140,9 +140,9 @@ import Button from '../components/ui/Button.astro';
                   <div class="w-2 h-2 bg-brand-primary"></div>
                   <span class="text-xs uppercase tracking-widest font-bold text-slate-800">Insights & Guidance</span>
                 </div>
-                <h2 class="text-4xl md:text-5xl font-serif text-brand-dark">Latest News</h2>
+                <h2 class="text-3xl md:text-5xl font-serif text-brand-dark">Latest News</h2>
               </div>
-              <Button href="#" variant="primary" class="hidden md:flex !px-6 !py-2.5">View All</Button>
+              <Button href="/blog" variant="primary" class="hidden md:flex !px-6 !py-2.5">View All</Button>
             </div>
 
             <div class="space-y-8">
@@ -150,11 +150,11 @@ import Button from '../components/ui/Button.astro';
                 { cat: 'ESTATE PLANNING', title: 'Avoid These Common & Expensive Mistakes: How To Leave A Lasting Legacy', img: '/images/indoor_family.png' },
                 { cat: 'ESTATE PLANNING', title: 'Yours, Mine & Ours: Estate Planning For Modern Florida Families', img: '/images/news_family.png' }
               ].map(post => (
-                <a href="#" class="flex gap-6 group">
-                  <img src={post.img} alt={post.title} class="w-32 h-32 object-cover flex-shrink-0 border border-black/5" />
+                <a href="/blog/article" class="flex gap-6 group">
+                  <img src={post.img} alt={post.title} class="w-24 h-24 sm:w-32 sm:h-32 object-cover flex-shrink-0 border border-black/5" />
                   <div class="flex flex-col justify-center">
                     <span class="text-[10px] uppercase font-bold tracking-widest text-brand-primary mb-2">{post.cat}</span>
-                    <h3 class="text-lg font-serif text-brand-dark group-hover:text-brand-primary transition-colors leading-snug mb-2">{post.title}</h3>
+                    <h3 class="text-base sm:text-lg font-serif text-brand-dark group-hover:text-brand-primary transition-colors leading-snug mb-2">{post.title}</h3>
                     <p class="text-xs text-slate-600 line-clamp-2 leading-relaxed">
                       You love your children and want to ensure that they are always taken care of...
                     </p>
@@ -163,7 +163,7 @@ import Button from '../components/ui/Button.astro';
               ))}
             </div>
             
-            <Button href="#" variant="primary" class="md:hidden mt-10 w-full">View All</Button>
+            <Button href="/blog" variant="primary" class="md:hidden mt-10 w-full">View All</Button>
           </div>
           
         </div>
@@ -171,7 +171,7 @@ import Button from '../components/ui/Button.astro';
     </section>
 
     <!-- 6. Secure Your Future Today (Form) -->
-    <section class="relative py-24 pb-48">
+    <section class="relative py-16 md:py-24 pb-36 md:pb-48">
       <div class="absolute inset-0 z-0">
         <img src="/images/hero_family.png" alt="Beach family" class="w-full h-full object-cover" />
         <div class="absolute inset-0 bg-brand-darker/80"></div>
@@ -183,15 +183,15 @@ import Button from '../components/ui/Button.astro';
             <div class="w-2 h-2 bg-brand-primary"></div>
             <span class="text-xs uppercase tracking-widest font-bold text-brand-beige">Schedule Your Consultation</span>
           </div>
-          <h2 class="text-4xl md:text-5xl font-serif text-white mb-4">Secure Your Future Today</h2>
+          <h2 class="text-3xl md:text-5xl font-serif text-white mb-4">Secure Your Future Today</h2>
           <p class="text-brand-light/80 text-sm">Let's build a plan that protects what matters most.</p>
         </div>
 
-        <form class="space-y-6" onsubmit="event.preventDefault();">
+        <form id="firmForm" class="space-y-6">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">First Name</label>
-              <input type="text" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+              <input type="text" required class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
             </div>
             <div>
               <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Last Name</label>
@@ -201,11 +201,11 @@ import Button from '../components/ui/Button.astro';
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Phone Number</label>
-              <input type="tel" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+              <input type="tel" required class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
             </div>
             <div>
               <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Email Address</label>
-              <input type="email" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
+              <input type="email" required class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm" />
             </div>
           </div>
           
@@ -220,13 +220,16 @@ import Button from '../components/ui/Button.astro';
 
           <div>
             <label class="block text-[11px] font-bold text-white mb-2 uppercase tracking-wide">Message</label>
-            <textarea rows="4" class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm"></textarea>
+            <textarea rows="4" required class="w-full px-4 py-3 bg-white text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-primary rounded-sm"></textarea>
           </div>
+
+          <!-- Alert Placeholder -->
+          <div id="firmFormAlert" class="hidden p-4 rounded-sm text-sm font-medium" role="alert"></div>
 
           <div class="flex items-center justify-between flex-wrap gap-4 pt-2">
             <label class="flex items-center gap-2 cursor-pointer text-white">
               <input type="checkbox" class="w-4 h-4 text-brand-primary rounded-sm border-white/20" required />
-              <span class="text-[11px] font-light">I consent to the <a href="#" class="underline">privacy policy</a></span>
+              <span class="text-[11px] font-light">I consent to the <a href="/disclaimer" class="underline">privacy policy</a></span>
             </label>
             <Button type="submit" variant="primary" class="!px-10 !py-3">Submit</Button>
           </div>
@@ -236,4 +239,28 @@ import Button from '../components/ui/Button.astro';
   </main>
 
   <Footer />
+
+  <script is:inline>
+    document.getElementById('firmForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const btn = form.querySelector('button[type="submit"]');
+      const alert = document.getElementById('firmFormAlert');
+      const originalText = btn.textContent;
+
+      btn.disabled = true;
+      btn.textContent = 'Mengirim...';
+
+      setTimeout(() => {
+        form.reset();
+        alert.textContent = 'Terima kasih! Pesan Anda telah berhasil dikirim. Tim kami akan segera menghubungi Anda.';
+        alert.classList.remove('hidden', 'bg-red-100', 'text-red-800');
+        alert.classList.add('bg-green-100', 'text-green-800');
+        btn.disabled = false;
+        btn.textContent = originalText;
+
+        setTimeout(() => { alert.classList.add('hidden'); }, 5000);
+      }, 1500);
+    });
+  </script>
 </BaseLayout>

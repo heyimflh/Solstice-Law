@@ -74,7 +74,7 @@ const blogPosts = [
       </div>
 
       <div class="max-w-[1200px] mx-auto px-6 w-full relative z-10 text-center">
-        <h1 class="text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-6">
+        <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-serif text-white leading-tight mb-6">
           Insights <span class="italic font-light text-brand-primary">&</span> News
         </h1>
         <p class="text-brand-light/70 max-w-xl mx-auto text-sm md:text-base leading-relaxed mb-8">
@@ -90,11 +90,11 @@ const blogPosts = [
 
     <!-- Featured Article -->
     <section class="relative -mt-16 z-20 px-6 max-w-[1200px] mx-auto">
-      <a href="#" class="block group">
-        <div class="bg-white p-4 md:p-6 shadow-2xl rounded-sm flex flex-col lg:flex-row gap-8 lg:gap-12 items-center transition-transform duration-500 hover:-translate-y-2">
+      <a href="/blog/article" class="block group">
+        <div class="bg-white p-4 md:p-6 shadow-2xl rounded-sm flex flex-col lg:flex-row gap-6 lg:gap-12 items-center transition-transform duration-500 hover:-translate-y-2">
           
           <div class="w-full lg:w-3/5 overflow-hidden rounded-sm relative">
-            <img src={featuredPost.img} alt={featuredPost.title} class="w-full h-[350px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img src={featuredPost.img} alt={featuredPost.title} class="w-full h-[250px] sm:h-[350px] md:h-[450px] object-cover transition-transform duration-700 group-hover:scale-105" />
             <div class="absolute inset-0 bg-brand-dark/10 group-hover:bg-transparent transition-colors duration-500"></div>
           </div>
           
@@ -106,7 +106,7 @@ const blogPosts = [
               <span class="text-[10px] text-brand-dark uppercase font-bold tracking-widest">{featuredPost.cat}</span>
             </div>
             
-            <h2 class="text-3xl md:text-4xl font-serif text-brand-dark leading-tight group-hover:text-brand-primary transition-colors duration-300">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-serif text-brand-dark leading-tight group-hover:text-brand-primary transition-colors duration-300">
               {featuredPost.title}
             </h2>
             
@@ -131,9 +131,9 @@ const blogPosts = [
 
     <!-- Filter Categories -->
     <section class="max-w-[1200px] mx-auto px-6 pt-24 pb-12">
-      <div class="flex flex-wrap items-center justify-center gap-3 md:gap-4">
+      <div id="category-filters" class="flex flex-wrap items-center justify-center gap-2 sm:gap-3 md:gap-4">
         {categories.map((cat, index) => (
-          <button class={`px-6 py-2.5 text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full border ${index === 0 ? 'bg-brand-dark text-white border-brand-dark shadow-md' : 'bg-transparent text-slate-500 border-slate-300 hover:border-brand-dark hover:text-brand-dark'}`}>
+          <button data-filter={cat === 'All Insights' ? 'all' : cat} class={`filter-btn px-4 sm:px-6 py-2 sm:py-2.5 text-[10px] sm:text-xs font-bold tracking-widest uppercase transition-all duration-300 rounded-full border ${index === 0 ? 'active bg-brand-dark text-white border-brand-dark shadow-md' : 'bg-transparent text-slate-500 border-slate-300 hover:border-brand-dark hover:text-brand-dark'}`}>
             {cat}
           </button>
         ))}
@@ -142,21 +142,21 @@ const blogPosts = [
 
     <!-- News Grid -->
     <section class="max-w-[1200px] mx-auto px-6 pb-32">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
-        {blogPosts.map(post => (
-          <a href="#" class="group flex flex-col h-full bg-white shadow-sm hover:shadow-xl transition-all duration-500 rounded-sm overflow-hidden border border-slate-100">
-            <div class="relative h-64 overflow-hidden">
+        <div id="blog-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 lg:gap-12">
+        {blogPosts.map((post, index) => (
+          <a href="/blog/article" data-category={post.cat} class="blog-card group flex flex-col h-full bg-white shadow-sm hover:shadow-xl transition-all duration-500 rounded-sm overflow-hidden border border-slate-100 hidden">
+            <div class="relative h-48 sm:h-64 overflow-hidden">
               <img src={post.img} alt={post.title} class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
               <div class="absolute inset-0 bg-brand-darker/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             </div>
             
-            <div class="p-8 flex flex-col flex-grow">
+            <div class="p-5 sm:p-8 flex flex-col flex-grow">
               <div class="flex items-center justify-between mb-4">
                 <span class="text-[10px] text-brand-primary uppercase font-bold tracking-widest">{post.cat}</span>
                 <span class="text-[10px] text-slate-400 uppercase font-bold tracking-wider">{post.date}</span>
               </div>
               
-              <h3 class="text-xl font-serif text-brand-dark leading-snug mb-4 group-hover:text-brand-primary transition-colors">
+              <h3 class="text-lg sm:text-xl font-serif text-brand-dark leading-snug mb-4 group-hover:text-brand-primary transition-colors">
                 {post.title}
               </h3>
               
@@ -175,11 +175,75 @@ const blogPosts = [
       
       <!-- Load More Button -->
       <div class="mt-20 text-center">
-        <Button href="#" variant="outline" class="!px-10">Load More Articles</Button>
+        <button id="load-more-btn" class="inline-flex items-center justify-center px-8 py-3.5 font-sans font-medium text-[14px] uppercase tracking-wider rounded-full transition-all duration-300 ease-in-out cursor-pointer focus:outline-none focus:ring-2 focus:ring-offset-2 shadow-sm hover:shadow-md border border-brand-primary text-brand-primary hover:bg-brand-primary hover:text-white focus:ring-brand-primary !px-10">Load More Articles</button>
       </div>
     </section>
 
   </main>
 
   <Footer />
+
+  <script is:inline>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.filter-btn');
+      const blogCards = document.querySelectorAll('.blog-card');
+      const loadMoreBtn = document.getElementById('load-more-btn');
+      let currentFilter = 'all';
+      let currentlyShown = 0;
+      const initialLoad = 3;
+
+      function updateGrid() {
+        let visibleCount = 0;
+        let matchCount = 0;
+
+        blogCards.forEach(card => {
+          const cat = card.getAttribute('data-category').toUpperCase();
+          const filter = currentFilter.toUpperCase();
+          
+          if (filter === 'ALL' || cat === filter) {
+            matchCount++;
+            if (visibleCount < currentlyShown) {
+              card.classList.remove('hidden');
+              visibleCount++;
+            } else {
+              card.classList.add('hidden');
+            }
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+
+        if (visibleCount >= matchCount) {
+          loadMoreBtn.style.display = 'none';
+        } else {
+          loadMoreBtn.style.display = 'inline-flex';
+        }
+      }
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => {
+            b.classList.remove('active', 'bg-brand-dark', 'text-white', 'border-brand-dark', 'shadow-md');
+            b.classList.add('bg-transparent', 'text-slate-500', 'border-slate-300');
+          });
+          
+          btn.classList.remove('bg-transparent', 'text-slate-500', 'border-slate-300');
+          btn.classList.add('active', 'bg-brand-dark', 'text-white', 'border-brand-dark', 'shadow-md');
+          
+          currentFilter = btn.getAttribute('data-filter');
+          currentlyShown = initialLoad;
+          updateGrid();
+        });
+      });
+
+      loadMoreBtn.addEventListener('click', () => {
+        currentlyShown += 3;
+        updateGrid();
+      });
+
+      // Initialize
+      currentlyShown = initialLoad;
+      updateGrid();
+    });
+  </script>
 </BaseLayout>
