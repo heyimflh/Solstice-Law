@@ -236,7 +236,7 @@ export const siteConfig = {
 ```
 
 ### Tailwind Configuration
-Warna premium brand sudah dikonfigurasi di `tailwind.config.mjs`:
+Warana premium brand sudah dikonfigurasi di `tailwind.config.mjs`:
 
 ```typescript
 colors: {
@@ -526,6 +526,7 @@ Untuk pertanyaan atau collaboration, hubungi tim development.
 - 📧 Email: contact@solsticelaw.id
 - 📱 WhatsApp: +62 811 9000 2727
 - 🌍 Website: [solsticelaw.id](https://solsticelaw.id)
+- 🌐 Live demo: [https://solstice-law.netlify.app/](https://solstice-law.netlify.app/)
 - 📍 Lokasi: District 8 Treasury Tower, Jakarta Selatan
 
 ---
@@ -534,6 +535,6 @@ Untuk pertanyaan atau collaboration, hubungi tim development.
 
 **Clarity at every turning point.**
 
-Dibuat dengan ☀️ oleh Solstice Law
+Dibuat dengan ☀️ oleh [@heyimflh](https://github.com/heyimflh) — pembuat repo dan website.
 
 </div>
